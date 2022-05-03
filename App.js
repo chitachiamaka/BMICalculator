@@ -1,51 +1,42 @@
-
-var msg = document.getElementById("msg")
-var height = parseFloat(prompt('Enter your height'));
-var weight = parseFloat(prompt('Enter your weight'));
-    function BMICalculator(){ 
-var bmi = weight / (height * height);
-var bmiRound = Math.round(bmi);
-bmiRound = Math.floor(bmiRound);
-
-
-// var output = `your BMI calculator is ${bmiRound}`
-// console.log(output)
-if(bmiRound < 18.5){
-  var   output = "your BMI is" + bmiRound + "mass" + "you are cureently underweight";
+// Question 1
+var msg = document.getElementById("msg");
+function bmiCalculator(weight,height) {
+    var weight = 65;
+    var height = 1.8;
+    var result;
+    var bmi = weight/(height*height);
+    var bmiRound = Math.round(bmi);
+    if (bmiRound<18.5){
+        result = "your BMI is" + bmiRound + "mass so you are underweight"
+    }
+else if( bmiRound >=18.9 && bmiRound<=24.9){
+    result = "your BMI is" + bmiRound + "mass so you have nornal weight"
 }
-else if(bmiRound < 18.5 && bmiRound <= 24.9){
- var output = "your BMI is" + bmiRound + "mass" +  " your have normal weight";
+    else if(bmiRound>24.9){
+        result = "your BMI is" + bmiRound + "mass so you are overweight"
+    }
+    return result;
 }
-
-else if(bmiRound >=25 && bmiRound <= 29.9){
-    var output = "your BMI is" + bmiRound + "mass" + "you are cureently overwieght";
-}
-
-else if(bmiRound >= 30){
-   var  output = "your BMI is" + bmiRound + "mass" + "you are obese";
-}
-return output
-}
- var bmiCal = BMICalculator();
+var bmiCal =  bmiCalculator();
  msg.innerHTML = bmiCal;
 
-// IBMcalculator(65,1.8);
-// second Question
+//  Question 2
 var Text = document.getElementById("Text")
-var age = 16;
-var accompanied = true;
-function movie(){
-   
-if (age >=13 && accompanied === true){
-    var output2 = "You are allowed in, but will not see the movie.";
-}
-else {
-    var output2 = "You are not allowed in";
-}
-    return output2;
-}
-Text.innerHTML = movie()
+function movie(age, accompained) {
+    var age = 12;
+    var accompained = true;
+   var agelimit;
+    if (age >=13 || accompained ==true){
+        agelimit = `your are allowed to see the movie.`
+    }
+else{
+ (age <= 12 && accompained == true)
+        agelimit = `your age is ${age} you are not  allowed to see the movie.`
 
-  
-
-  
+}
+// console.log(agelimit)
+return agelimit;
+}
+var watch =  movie();
+Text.innerHTML = watch; 
+    
